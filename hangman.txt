@@ -1,0 +1,38 @@
+#hangman using python
+import os
+wrong_guess=0
+aww="hangman"
+word="battleship"
+flag=0
+tracker_list=['-']*len(word)
+print("\n")	
+print("welcome to the game HANGMAN.....!!!!!!")
+print("\n \n \n")
+print("you will be having total seven chances \n \n \n")
+print("the word is of total "str(len(word))+" characters \n")
+print(tracker_list)
+print("\n \n \n")
+
+while wrong_guess<7:
+	guess=input("\nenter the word which you guessed \n")
+	if guess in word:
+		cnt=-1
+		for y in word:
+			cnt=cnt+1
+			if guess==y:
+				ind=cnt
+				tracker_list[ind]=guess
+		print("\n")
+		print(tracker_list)
+		if '-' not in tracker_list:
+			flag=1
+			break
+	else:
+		wrong_guess=wrong_guess+1
+		print("\n you are left with "+str(7-wrong_guess)+" chances.....\n")
+		print(aww[0:wrong_guess])
+if flag=1:
+	print("you won....!!!!")
+else:
+	print("\n \n you lose.......better luck next time :)")	
+	
